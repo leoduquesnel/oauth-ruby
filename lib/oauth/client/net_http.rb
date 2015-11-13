@@ -84,7 +84,7 @@ private
   end
 
   def oauth_body_hash_required?
-    request_body_permitted? && !content_type.to_s.downcase.start_with?("application/x-www-form-urlencoded")
+    !@oauth_helper.no_oauth_body_hash? && request_body_permitted? && !content_type.to_s.downcase.start_with?("application/x-www-form-urlencoded")
   end
 
   def set_oauth_header

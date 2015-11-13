@@ -56,6 +56,10 @@ module OAuth::Client
                                                          :parameters => oauth_parameters}.merge(extra_options) )
     end
 
+    def no_oauth_body_hash?
+      @options[:no_oauth_body_hash].eql?(true)
+    end
+
     def hash_body
       @options[:body_hash] = OAuth::Signature.body_hash(@request, :parameters => oauth_parameters)
     end
